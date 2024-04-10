@@ -266,6 +266,8 @@ scripts ~= prettifyExtension;
 
 bool use_katex = false;
 
+@{Import Mermaid}
+
 output ~= "<!DOCTYPE html>\n" ~
              "<html>\n" ~
              "<head>\n" ~
@@ -276,6 +278,15 @@ output ~= "<!DOCTYPE html>\n" ~
              css ~
              "</style>\n" ~
              "</head>\n";
+---
+
+Additionally, we will add support to diagramming and charting by using the Mermaid tool. So let's import it:
+
+--- Import Mermaid
+scripts ~= "<script type='module'>
+            import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+            mermaid.initialize({ startOnLoad: true });
+            </script>";
 ---
 
 @s Parse the Chapter
